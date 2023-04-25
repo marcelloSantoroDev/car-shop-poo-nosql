@@ -1,7 +1,10 @@
 import express from 'express';
+import CarsController from '../Controllers/CarsController';
 
 const router = express.Router();
 
-// router.use('/cars', carsController.create);
+const carsController = new CarsController();
+
+router.use('/', carsController.create);
 
 export default router;

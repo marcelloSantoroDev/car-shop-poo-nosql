@@ -1,3 +1,8 @@
+import express from 'express';
 import carsRoute from './carsRoute';
 
-export default { carsRoute };
+const router = express.Router();
+
+router.use('/cars', carsRoute);
+
+export default router;
