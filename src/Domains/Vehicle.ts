@@ -4,7 +4,7 @@ export default abstract class Vehicle {
   protected model: string;
   protected year: number;
   protected color: string;
-  protected status: boolean;
+  protected status: boolean | undefined;
   protected buyValue: number;
 
   constructor(
@@ -16,19 +16,19 @@ export default abstract class Vehicle {
     this.status = vehicle.status;
     this.buyValue = vehicle.buyValue;
   }
-  getModel(): string {
-    return this.model;
-  }
-  getYear(): number {
-    return this.year;
-  }
-  getColor(): string {
-    return this.color;
-  }
-  getStatus(): boolean {
-    return this.status;
-  }
-  getBuyValue(): number {
-    return this.buyValue;
-  }
+  // getModel(): string {
+  //   return this.model;
+  // }
+  // getYear(): number {
+  //   return this.year;
+  // }
+  // getColor(): string {
+  //   return this.color;
+  // }
+  // getStatus(): boolean | undefined {
+  //   return this.status;
+  // }
+  // getBuyValue(): number {
+  //   return this.buyValue;
+  // }
 }

@@ -1,30 +1,35 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import CarsService from '../Services/CarsService';
 import ICar from '../Interfaces/ICar';
 
 class CarsController {
   private service: CarsService;
+  private req: Request;
+  private res: Response;
 
-  constructor() {
+  constructor(req: Request, res: Response) {
     this.service = new CarsService();
+    this.req = req;
+    this.res = res;
   }
 
-  public async create(req: Request, res: Response, next: NextFunction) {
+  public async create() {
+    const { model, year, color, buyValue, doorsQty, seatsQty, status } = this.req.body;
     const car: ICar = {
-      model: req.body.model,
-      year: req.body.year,
-      color: req.body.color,
-      status: req.body.status,
-      buyValue: req.body.buyValue,
-      doorsQty: req.body.doorsQty,
-      seatsQty: req.body.seatsQty,
+      model,
+      year,
+      color,
+      status,
+      buyValue,
+      doorsQty,
+      seatsQty,
     };
 
     try {
       const newCar = await this.service.create(car);
-      return res.status(201).json(newCar);
+      return this.res.status(201).json(newCar);
     } catch (error) {
-      next(error);
+      return this.res.status(500).json({ message: error });
     }
   }
 }

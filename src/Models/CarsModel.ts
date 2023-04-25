@@ -5,23 +5,23 @@ import {
   models,
 } from 'mongoose';
 import ICar from '../Interfaces/ICar';
-import IVehicle from '../Interfaces/IVehicle';
 
 class CarsModel {
   protected schema: Schema;
-  protected model: Model<IVehicle>;
+  protected model: Model<ICar>;
 
   constructor() {
     this.schema = new Schema<ICar>({
-      model: { type: String },
-      year: { type: Number }, 
-      color: { type: String }, 
+      model: { type: String, required: true },
+      year: { type: Number, required: true }, 
+      color: { type: String, required: true }, 
       status: { type: Boolean }, 
-      buyValue: { type: Number }, 
-      doorsQty: { type: Number }, 
-      seatsQty: { type: Number }, 
+      buyValue: { type: Number, required: true }, 
+      doorsQty: { type: Number, required: true }, 
+      seatsQty: { type: Number, required: true }, 
     });
-    this.model = models.Cars || model('Cars', this.schema);
+
+    this.model = models.Car || model('Car', this.schema);
   }
 
   public async create(car: ICar) {

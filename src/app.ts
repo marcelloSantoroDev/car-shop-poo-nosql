@@ -1,9 +1,9 @@
 import express from 'express';
-import Routes from './Routes';
+import routes from './Routes';
 
 const app = express();
 
 app.use(express.json());
-app.use(Routes);
+app.use(routes);
 
 export default app;

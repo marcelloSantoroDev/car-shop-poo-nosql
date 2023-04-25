@@ -3,8 +3,6 @@ import CarsController from '../Controllers/CarsController';
 
 const router = express.Router();
 
-const carsController = new CarsController();
-
-router.use('/', carsController.create);
+router.post('/', async (req, res) => new CarsController(req, res).create);
 
 export default router;
