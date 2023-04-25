@@ -1,3 +1,5 @@
+import IVehicle from '../Interfaces/IVehicle';
+
 export default abstract class Vehicle {
   protected model: string;
   protected year: number;
@@ -6,18 +8,13 @@ export default abstract class Vehicle {
   protected buyValue: number;
 
   constructor(
-    model: string,
-    year: number,
-    color: string,
-    status: boolean,
-    buyValue: number,
-
+    vehicle: IVehicle,
   ) {
-    this.model = model;
-    this.year = year;
-    this.color = color;
-    this.status = status;
-    this.buyValue = buyValue;
+    this.model = vehicle.model;
+    this.year = vehicle.year;
+    this.color = vehicle.color;
+    this.status = vehicle.status;
+    this.buyValue = vehicle.buyValue;
   }
   getModel(): string {
     return this.model;

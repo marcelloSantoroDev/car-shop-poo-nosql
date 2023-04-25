@@ -1,23 +1,24 @@
-class Car {
+import ICar from '../Interfaces/ICar';
+import Vehicle from './Vehicle';
+
+class Car extends Vehicle {
   private doorsQty: number;
   private seatsQty: number;
 
   constructor(
-    model: string,
-    year: number,
-    color: string,
-    status: boolean,
-    buyValue: number,
-    doorsQty: number,
-    seatsQty: number,
+    car: ICar,
   ) {
-    this.model = model;
-    this.year = year;
-    this.color = color;
-    this.status = status;
-    this.buyValue = buyValue;
-    this.doorsQty = doorsQty;
-    this.seatsQty = seatsQty;
+    super(car);
+    this.doorsQty = car.doorsQty;
+    this.seatsQty = car.seatsQty;
+  }
+
+  getDoorsQty(): number {
+    return this.doorsQty;
+  }
+
+  getSeatsQty(): number {
+    return this.seatsQty;
   }
 }
 
