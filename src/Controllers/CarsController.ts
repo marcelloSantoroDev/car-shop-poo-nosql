@@ -53,7 +53,7 @@ class CarsController {
       
       return this.res.status(200).json(message);
     } catch (error) {
-      return this.res.status(500).json({ message: error });
+      return this.res.status(422).json({ message: 'Invalid mongo id' });
     }
   }
 }

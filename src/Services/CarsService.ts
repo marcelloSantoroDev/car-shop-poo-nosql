@@ -22,8 +22,6 @@ class CarsService {
   public async getAll() {
     const result = await this.carsModel.getAll();
 
-    if (result.length === 0) return { type: 'NOT_FOUND', message: 'Car not found' };
-
     const cars = result.map((car) => this.createCarDomain(car));
 
     return { type: null, message: cars };
