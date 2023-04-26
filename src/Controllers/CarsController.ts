@@ -46,7 +46,11 @@ class CarsController {
     const { id } = this.req.params;
     try {
       const { type, message } = await this.service.getById(id);
-      if (type) return this.res.status(404).json({ message });
+
+      if (type) {
+        return this.res.status(404).json({ message });
+      }
+      
       return this.res.status(200).json(message);
     } catch (error) {
       return this.res.status(500).json({ message: error });
