@@ -27,6 +27,14 @@ class CarsModel {
   public async create(car: ICar) {
     return this.model.create({ ...car });
   }
+
+  public async getAll() {
+    return this.model.find();
+  }
+
+  public async getById(id: string) {
+    return this.model.findById(id);
+  }
 }
 
 export default CarsModel;
