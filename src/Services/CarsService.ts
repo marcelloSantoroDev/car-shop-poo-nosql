@@ -5,7 +5,8 @@ import CarsModel from '../Models/CarsModel';
 class CarsService {
   public createCarDomain(car: ICar) {
     if (car) {
-      const { buyValue, color, doorsQty, model, seatsQty, year, id, status } = car;
+      const id = car._id;
+      const { buyValue, color, doorsQty, model, seatsQty, year, status } = car;
       return new Car({ buyValue, color, doorsQty, model, seatsQty, year, id, status });
     }
     return null;

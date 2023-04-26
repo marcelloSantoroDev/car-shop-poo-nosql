@@ -1,6 +1,7 @@
 import IVehicle from '../Interfaces/IVehicle';
 
-export default abstract class Vehicle {
+class Vehicle {
+  protected id: string | undefined;
   protected model: string;
   protected year: number;
   protected color: string;
@@ -15,20 +16,8 @@ export default abstract class Vehicle {
     this.color = vehicle.color;
     this.status = vehicle.status;
     this.buyValue = vehicle.buyValue;
+    this.id = vehicle.id;
   }
-  // getModel(): string {
-  //   return this.model;
-  // }
-  // getYear(): number {
-  //   return this.year;
-  // }
-  // getColor(): string {
-  //   return this.color;
-  // }
-  // getStatus(): boolean | undefined {
-  //   return this.status;
-  // }
-  // getBuyValue(): number {
-  //   return this.buyValue;
-  // }
 }
+
+export default Vehicle;

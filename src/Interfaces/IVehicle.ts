@@ -1,5 +1,6 @@
 interface IVehicle {
-  id?: number,
+  id?: string,
+  _id?: string,
   model: string,
   year: number,
   color: string,
