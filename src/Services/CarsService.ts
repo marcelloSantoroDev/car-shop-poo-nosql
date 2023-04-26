@@ -35,6 +35,12 @@ class CarsService {
     }
     return { type: 'NOT_FOUND', message: 'Car not found' };
   }
+
+  public async update(id: string | undefined, car: ICar) {
+    const result = await this.carsModel.update(id, car);
+    if (!result) return { type: 'NOT_FOUND', message: 'Car not found' };
+    return { type: null, message: car };
+  }
 }
 
 export default CarsService;
