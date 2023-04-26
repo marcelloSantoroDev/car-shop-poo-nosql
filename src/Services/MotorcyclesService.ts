@@ -22,9 +22,9 @@ class MotorcyclesService {
   public async getAll() {
     const result = await this.MotorcyclesModel.getAll();
 
-    const Motorcycles = result.map((motorcycle) => this.createMotorcycleDomain(motorcycle));
+    const motorcycles = result.map((motorcycle) => this.createMotorcycleDomain(motorcycle));
 
-    return { type: null, message: Motorcycles };
+    return { type: null, message: motorcycles };
   }
 
   public async getById(id: string) {
