@@ -68,7 +68,7 @@ describe('testes da camada services de Motorcycles', function () {
       expect(result.message).to.be.equal('Motorcycle not found');
     });
   });
-  describe('criação de motos', function () {
+  describe('criação/update de motos', function () {
     it('cria uma moto com sucesso', async function () {
       // arrange
       sinon.stub(Model, 'create').resolves(motorcycleMongoose);
@@ -76,6 +76,15 @@ describe('testes da camada services de Motorcycles', function () {
       const result = await motorcyclesService.create(motorcycleWithoutId);
       // assert
       expect(result).to.be.deep.equal(motorcycleDomain);
+    });
+    it('atualiza uma moto com sucesso', async function () {
+      // arrange
+      sinon.stub(Model, 'findByIdAndUpdate').resolves(motorcycleMongoose);
+      // act
+      const result = await motorcyclesService
+        .update('64497e0d8e1e7812bb39cea4', motorcycleWithoutId);
+      // assert
+      expect(result.message).to.be.deep.equal(motorcycleWithoutId);
     });
   });
 });

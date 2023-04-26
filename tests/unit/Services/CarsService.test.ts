@@ -68,7 +68,7 @@ describe('testes da camada services de Cars', function () {
       expect(result.message).to.be.equal('Car not found');
     });
   });
-  describe('criação de carros', function () {
+  describe('criação/update de carros', function () {
     it('cria um carro com sucesso', async function () {
       // arrange
       sinon.stub(Model, 'create').resolves(carMongoose);
@@ -76,6 +76,14 @@ describe('testes da camada services de Cars', function () {
       const result = await carsService.create(carWithoutId);
       // assert
       expect(result).to.be.deep.equal(carDomain);
+    });
+    it('atualiza um carro com sucesso', async function () {
+      // arrange
+      sinon.stub(Model, 'findByIdAndUpdate').resolves(carMongoose);
+      // act
+      const result = await carsService.update('64497e0d8e1e7812bb39cea4', carWithoutId);
+      // assert
+      expect(result.message).to.be.deep.equal(carWithoutId);
     });
   });
 });
