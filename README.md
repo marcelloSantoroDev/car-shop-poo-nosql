@@ -1,6 +1,6 @@
 # Car Shop POO NoSQL
 
-Este é um projeto de aplicação web para uma loja de carros, desenvolvido com os conceitos de programação orientada a objetos (POO) e banco de dados NoSQL utilizando o MongoDB. A aplicação é escrita em TypeScript e utiliza o framework Express, seguindo uma arquitetura em camadas.
+Este é um projeto do lado back end para uma loja de carros e motos. É criada um API utilizando com os conceitos de programação orientada a objetos (POO) e banco de dados NoSQL utilizando o MongoDB com mongoose. A aplicação é escrita em TypeScript e utiliza o framework Express, seguindo uma arquitetura em camadas.
 
 ## Linguagens, Ferramentas e Paradigmas utilizados
 
