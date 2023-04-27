@@ -2,6 +2,8 @@ import Motorcycle from '../Domains/Motorcycle';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcyclesModel from '../Models/MotorcyclesModel';
 
+const motorcycleNotFound = 'Motorcycle not found';
+
 class MotorcyclesService {
   public createMotorcycleDomain(motorcycle: IMotorcycle) {
     if (motorcycle) {
@@ -33,13 +35,19 @@ class MotorcyclesService {
       const motorcycle = this.createMotorcycleDomain(result);
       return { type: null, message: motorcycle };
     }
-    return { type: 'NOT_FOUND', message: 'Motorcycle not found' };
+    return { type: 'NOT_FOUND', message: motorcycleNotFound };
   }
 
   public async update(id: string | undefined, motorcycle: IMotorcycle) {
     const result = await this.MotorcyclesModel.update(id, motorcycle);
-    if (!result) return { type: 'NOT_FOUND', message: 'Motorcycle not found' };
+    if (!result) return { type: 'NOT_FOUND', message: motorcycleNotFound };
     return { type: null, message: motorcycle };
+  }
+
+  public async deleteMotorcycle(id: string) {
+    const result = await this.MotorcyclesModel.deleteVehicle(id);
+    if (!result) return { type: 'NOT_FOUND', message: motorcycleNotFound };
+    return { type: null, message: '' };
   }
 }
 

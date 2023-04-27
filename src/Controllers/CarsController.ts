@@ -88,7 +88,7 @@ class CarsController {
         return this.res.status(404).json({ message });
       }
 
-      return this.res.status(204).end();
+      return this.res.status(202).json({ message: 'Car deleted' });
     } catch (error) {
       return this.res.status(422).json({ message: invalidMongoId });
     }

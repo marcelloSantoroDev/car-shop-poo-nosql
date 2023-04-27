@@ -29,7 +29,7 @@ class AbstractODM<T> {
     return this.model.findByIdAndUpdate(id, vehicle);
   }
 
-  public async deleteCar(id: string) {
+  public async deleteVehicle(id: string) {
     return this.model.findByIdAndDelete(id);
   }
 }

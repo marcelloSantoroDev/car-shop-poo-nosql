@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcyclesService from '../Services/MotorcyclesService';
 
+const invalidMongoId = 'Invalid mongo id';
+
 class MotorcyclesController {
   private service: MotorcyclesService;
   private req: Request;
@@ -53,7 +55,7 @@ class MotorcyclesController {
       
       return this.res.status(200).json(message);
     } catch (error) {
-      return this.res.status(422).json({ message: 'Invalid mongo id' });
+      return this.res.status(422).json({ message: invalidMongoId });
     }
   }
 
@@ -74,7 +76,23 @@ class MotorcyclesController {
 
       return this.res.status(200).json(motorcycle);
     } catch (error) {
-      return this.res.status(422).json({ message: 'Invalid mongo id' });
+      return this.res.status(422).json({ message: invalidMongoId });
+    }
+  }
+
+  public async deleteMotorcycle() {
+    const { id } = this.req.params;
+
+    try {
+      const { type, message } = await this.service.deleteMotorcycle(id);
+
+      if (type) {
+        return this.res.status(404).json({ message });
+      }
+
+      return this.res.status(202).json({ message: 'Motorcycle deleted' });
+    } catch (error) {
+      return this.res.status(422).json({ message: invalidMongoId });
     }
   }
 }

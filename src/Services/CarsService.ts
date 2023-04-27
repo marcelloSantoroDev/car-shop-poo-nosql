@@ -45,8 +45,7 @@ class CarsService {
   }
 
   public async deleteCar(id: string) {
-    const result = await this.carsModel.deleteCar(id);
-    console.log(result + '<<<<<<<<<<<< RETORNO FIND BY ID AND UPDATE')
+    const result = await this.carsModel.deleteVehicle(id);
     if (!result) return { type: 'NOT_FOUND', message: carNotFound };
     return { type: null, message: '' };
   } 
