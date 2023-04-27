@@ -1,13 +1,33 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Car Shop POO NoSQL
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Este é um projeto de aplicação web para uma loja de carros, desenvolvido com os conceitos de programação orientada a objetos (POO) e banco de dados NoSQL utilizando o MongoDB. A aplicação é escrita em TypeScript e utiliza o framework Express, seguindo uma arquitetura em camadas.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Linguagens, Ferramentas e Paradigmas utilizados
+
+- Programação Orientada a Objetos (POO)
+- Banco de dados NoSQL MongoDB com Mongoose
+- TypeScript
+- Express.js
+- Arquitetura em camadas
+
+## Como utilizar a aplicação
+
+Para clonar o repositório, execute o seguinte comando em seu terminal:
+
+`git clone https://github.com/marcelloSantoroDev/car-shop-poo-nosql.git`
+
+Em seguida, navegue até o diretório do projeto e execute o seguinte comando para instalar as dependências e iniciar o servidor:
+
+`npm install` && `npm run dev`
+
+Não se esqueça de definir suas variáveis de ambiente!
+
+Se for usar o docker-compose:
+
+Execute o comando `docker-compose up -d` no seu terminal
+
+entre no bash do container com:
+
+`docker exec -it car_shop bash`
+
+rode `npm install && npm run dev` dentro do container
