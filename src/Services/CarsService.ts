@@ -2,6 +2,8 @@ import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
 import CarsModel from '../Models/CarsModel';
 
+const carNotFound = 'Car not found';
+
 class CarsService {
   public createCarDomain(car: ICar) {
     if (car) {
@@ -33,14 +35,21 @@ class CarsService {
       const car = this.createCarDomain(result);
       return { type: null, message: car };
     }
-    return { type: 'NOT_FOUND', message: 'Car not found' };
+    return { type: 'NOT_FOUND', message: carNotFound };
   }
 
   public async update(id: string | undefined, car: ICar) {
     const result = await this.carsModel.update(id, car);
-    if (!result) return { type: 'NOT_FOUND', message: 'Car not found' };
+    if (!result) return { type: 'NOT_FOUND', message: carNotFound };
     return { type: null, message: car };
   }
+
+  public async deleteCar(id: string) {
+    const result = await this.carsModel.deleteCar(id);
+    console.log(result + '<<<<<<<<<<<< RETORNO FIND BY ID AND UPDATE')
+    if (!result) return { type: 'NOT_FOUND', message: carNotFound };
+    return { type: null, message: '' };
+  } 
 }
 
 export default CarsService;

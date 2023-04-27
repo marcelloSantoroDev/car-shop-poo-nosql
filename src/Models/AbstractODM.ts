@@ -28,6 +28,10 @@ class AbstractODM<T> {
   public async update(id: string | undefined, vehicle: IVehicle) {
     return this.model.findByIdAndUpdate(id, vehicle);
   }
+
+  public async deleteCar(id: string) {
+    return this.model.findByIdAndDelete(id);
+  }
 }
 
 export default AbstractODM;
